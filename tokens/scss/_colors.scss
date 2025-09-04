@@ -1,37 +1,27 @@
 // Color Tokens
-// Semantic color definitions using single LCH values
-// Variants can be created using color-mix() elsewhere
+// Base semantic color definitions using single LCH values
+// All other colors are derived from these base tokens using color-mix()
 
-// Action
+// Base Semantic Colors
 $color-action: oklch(68% 0.15 237.33);
-
-// Info
 $color-info: oklch(65% 0.15 250);
-
-// Success
 $color-success: oklch(65% 0.15 140);
-
-// Warning
 $color-warning: oklch(75% 0.15 60);
-
-// Critical
 $color-critical: oklch(60% 0.15 20);
-
-// Neutral
 $color-neutral: oklch(50% 0 0);
 
-// Background Colors
-$color-background-primary: oklch(100% 0 0);
-$color-background-secondary: oklch(98% 0 0);
-$color-background-tertiary: oklch(96% 0 0);
+// Background Colors - derived from neutral
+$color-background-primary: color-mix(in oklch, $color-neutral 0%, white);
+$color-background-secondary: color-mix(in oklch, $color-neutral 5%, white);
+$color-background-tertiary: color-mix(in oklch, $color-neutral 10%, white);
 
-// Text Colors
-$color-text-primary: oklch(20% 0 0);
-$color-text-secondary: oklch(45% 0 0);
-$color-text-tertiary: oklch(60% 0 0);
-$color-text-inverse: oklch(100% 0 0);
+// Text Colors - derived from neutral
+$color-text-primary: color-mix(in oklch, $color-neutral 80%, black);
+$color-text-secondary: color-mix(in oklch, $color-neutral 60%, black);
+$color-text-tertiary: color-mix(in oklch, $color-neutral 40%, black);
+$color-text-inverse: color-mix(in oklch, $color-neutral 0%, white);
 
-// Border Colors
-$color-border-primary: oklch(90% 0 0);
-$color-border-secondary: oklch(85% 0 0);
+// Border Colors - derived from neutral
+$color-border-primary: color-mix(in oklch, $color-neutral 20%, white);
+$color-border-secondary: color-mix(in oklch, $color-neutral 30%, white);
 $color-border-focus: $color-action;

@@ -11,7 +11,7 @@
 
 // Convert SCSS variables to CSS custom properties
 :root {
-  // Semantic Color Custom Properties
+  // Base Semantic Color Custom Properties
   --color-action: #{$color-action};
   --color-info: #{$color-info};
   --color-success: #{$color-success};
@@ -19,18 +19,21 @@
   --color-critical: #{$color-critical};
   --color-neutral: #{$color-neutral};
 
-  --color-background-primary: #{$color-background-primary};
-  --color-background-secondary: #{$color-background-secondary};
-  --color-background-tertiary: #{$color-background-tertiary};
+  // Background Colors - derived from neutral using color-mix()
+  --color-background-primary: color-mix(in oklch, var(--color-neutral) 0%, white);
+  --color-background-secondary: color-mix(in oklch, var(--color-neutral) 5%, white);
+  --color-background-tertiary: color-mix(in oklch, var(--color-neutral) 10%, white);
 
-  --color-text-primary: #{$color-text-primary};
-  --color-text-secondary: #{$color-text-secondary};
-  --color-text-tertiary: #{$color-text-tertiary};
-  --color-text-inverse: #{$color-text-inverse};
+  // Text Colors - derived from neutral using color-mix()
+  --color-text-primary: color-mix(in oklch, var(--color-neutral) 80%, black);
+  --color-text-secondary: color-mix(in oklch, var(--color-neutral) 60%, black);
+  --color-text-tertiary: color-mix(in oklch, var(--color-neutral) 40%, black);
+  --color-text-inverse: color-mix(in oklch, var(--color-neutral) 0%, white);
 
-  --color-border-primary: #{$color-border-primary};
-  --color-border-secondary: #{$color-border-secondary};
-  --color-border-focus: #{$color-border-focus};
+  // Border Colors - derived from neutral using color-mix()
+  --color-border-primary: color-mix(in oklch, var(--color-neutral) 20%, white);
+  --color-border-secondary: color-mix(in oklch, var(--color-neutral) 30%, white);
+  --color-border-focus: var(--color-action);
 
   // Typography Custom Properties
   --font-family-primary: #{$font-family-primary};
