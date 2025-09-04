@@ -24,44 +24,42 @@
                 
                 <div class="color-grid">
                     <div class="color-group">
-                        <h3>Primary Colors</h3>
-                        <div class="color-palette">
-                            <div class="color-swatch" style="background-color: var(--color-primary-50);">50</div>
-                            <div class="color-swatch" style="background-color: var(--color-primary-100);">100</div>
-                            <div class="color-swatch" style="background-color: var(--color-primary-200);">200</div>
-                            <div class="color-swatch" style="background-color: var(--color-primary-300);">300</div>
-                            <div class="color-swatch" style="background-color: var(--color-primary-400);">400</div>
-                            <div class="color-swatch" style="background-color: var(--color-primary-500);">500</div>
-                            <div class="color-swatch" style="background-color: var(--color-primary-600);">600</div>
-                            <div class="color-swatch" style="background-color: var(--color-primary-700);">700</div>
-                            <div class="color-swatch" style="background-color: var(--color-primary-800);">800</div>
-                            <div class="color-swatch" style="background-color: var(--color-primary-900);">900</div>
-                        </div>
-                    </div>
-
-                    <div class="color-group">
-                        <h3>Neutral Colors</h3>
-                        <div class="color-palette">
-                            <div class="color-swatch" style="background-color: var(--color-gray-50);">50</div>
-                            <div class="color-swatch" style="background-color: var(--color-gray-100);">100</div>
-                            <div class="color-swatch" style="background-color: var(--color-gray-200);">200</div>
-                            <div class="color-swatch" style="background-color: var(--color-gray-300);">300</div>
-                            <div class="color-swatch" style="background-color: var(--color-gray-400);">400</div>
-                            <div class="color-swatch" style="background-color: var(--color-gray-500);">500</div>
-                            <div class="color-swatch" style="background-color: var(--color-gray-600);">600</div>
-                            <div class="color-swatch" style="background-color: var(--color-gray-700);">700</div>
-                            <div class="color-swatch" style="background-color: var(--color-gray-800);">800</div>
-                            <div class="color-swatch" style="background-color: var(--color-gray-900);">900</div>
-                        </div>
-                    </div>
-
-                    <div class="color-group">
                         <h3>Semantic Colors</h3>
                         <div class="color-palette">
+                            <div class="color-swatch" style="background-color: var(--color-action);">Action</div>
+                            <div class="color-swatch" style="background-color: var(--color-info);">Info</div>
                             <div class="color-swatch" style="background-color: var(--color-success);">Success</div>
                             <div class="color-swatch" style="background-color: var(--color-warning);">Warning</div>
-                            <div class="color-swatch" style="background-color: var(--color-error);">Error</div>
-                            <div class="color-swatch" style="background-color: var(--color-info);">Info</div>
+                            <div class="color-swatch" style="background-color: var(--color-critical);">Critical</div>
+                            <div class="color-swatch" style="background-color: var(--color-neutral);">Neutral</div>
+                        </div>
+                    </div>
+
+                    <div class="color-group">
+                        <h3>Background Colors</h3>
+                        <div class="color-palette">
+                            <div class="color-swatch" style="background-color: var(--color-background-primary);">Primary</div>
+                            <div class="color-swatch" style="background-color: var(--color-background-secondary);">Secondary</div>
+                            <div class="color-swatch" style="background-color: var(--color-background-tertiary);">Tertiary</div>
+                        </div>
+                    </div>
+
+                    <div class="color-group">
+                        <h3>Text Colors</h3>
+                        <div class="color-palette">
+                            <div class="color-swatch" style="background-color: var(--color-text-primary); color: var(--color-text-inverse);">Primary</div>
+                            <div class="color-swatch" style="background-color: var(--color-text-secondary); color: var(--color-text-inverse);">Secondary</div>
+                            <div class="color-swatch" style="background-color: var(--color-text-tertiary); color: var(--color-text-inverse);">Tertiary</div>
+                            <div class="color-swatch" style="background-color: var(--color-text-inverse); color: var(--color-text-primary);">Inverse</div>
+                        </div>
+                    </div>
+
+                    <div class="color-group">
+                        <h3>Border Colors</h3>
+                        <div class="color-palette">
+                            <div class="color-swatch" style="background-color: var(--color-border-primary);">Primary</div>
+                            <div class="color-swatch" style="background-color: var(--color-border-secondary);">Secondary</div>
+                            <div class="color-swatch" style="background-color: var(--color-border-focus);">Focus</div>
                         </div>
                     </div>
                 </div>
@@ -158,23 +156,24 @@
                 
                 <div class="component-showcase">
                     <div class="button-group">
-                        <button class="btn btn-primary">Primary Button</button>
-                        <button class="btn btn-secondary">Secondary Button</button>
+                        <button class="btn btn-action">Action Button</button>
+                        <button class="btn btn-info">Info Button</button>
                         <button class="btn btn-success">Success Button</button>
                         <button class="btn btn-warning">Warning Button</button>
-                        <button class="btn btn-error">Error Button</button>
+                        <button class="btn btn-critical">Critical Button</button>
+                        <button class="btn btn-neutral">Neutral Button</button>
                     </div>
 
                     <div class="card-group">
                         <div class="card">
                             <h3>Card Title</h3>
                             <p>This is a card component using our design tokens for consistent styling.</p>
-                            <button class="btn btn-primary">Action</button>
+                            <button class="btn btn-action">Action</button>
                         </div>
                         <div class="card">
                             <h3>Another Card</h3>
                             <p>Cards demonstrate spacing, typography, and color tokens working together.</p>
-                            <button class="btn btn-secondary">Action</button>
+                            <button class="btn btn-neutral">Action</button>
                         </div>
                     </div>
 

@@ -219,37 +219,58 @@
   box-shadow: var(--shadow-focus);
 }
 
-.btn-primary {
-  background-color: var(--color-primary-500);
-  color: var(--color-white);
+.btn-action {
+  background-color: var(--color-action);
+  color: var(--color-text-inverse);
 }
 
-.btn-primary:hover {
-  background-color: var(--color-primary-600);
+.btn-action:hover {
+  background-color: color-mix(in oklch, var(--color-action) 80%, black);
 }
 
-.btn-secondary {
-  background-color: var(--color-secondary-500);
-  color: var(--color-white);
+.btn-info {
+  background-color: var(--color-info);
+  color: var(--color-text-inverse);
 }
 
-.btn-secondary:hover {
-  background-color: var(--color-secondary-600);
+.btn-info:hover {
+  background-color: color-mix(in oklch, var(--color-info) 80%, black);
 }
 
 .btn-success {
   background-color: var(--color-success);
-  color: var(--color-white);
+  color: var(--color-text-inverse);
+}
+
+.btn-success:hover {
+  background-color: color-mix(in oklch, var(--color-success) 80%, black);
 }
 
 .btn-warning {
   background-color: var(--color-warning);
-  color: var(--color-white);
+  color: var(--color-text-inverse);
 }
 
-.btn-error {
-  background-color: var(--color-error);
-  color: var(--color-white);
+.btn-warning:hover {
+  background-color: color-mix(in oklch, var(--color-warning) 80%, black);
+}
+
+.btn-critical {
+  background-color: var(--color-critical);
+  color: var(--color-text-inverse);
+}
+
+.btn-critical:hover {
+  background-color: color-mix(in oklch, var(--color-critical) 80%, black);
+}
+
+.btn-neutral {
+  background-color: var(--color-neutral);
+  color: var(--color-text-inverse);
+}
+
+.btn-neutral:hover {
+  background-color: color-mix(in oklch, var(--color-neutral) 80%, black);
 }
 
 .card-group {

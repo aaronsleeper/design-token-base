@@ -11,46 +11,13 @@
 
 // Convert SCSS variables to CSS custom properties
 :root {
-  // Color Custom Properties
-  --color-primary-50: #{$color-primary-50};
-  --color-primary-100: #{$color-primary-100};
-  --color-primary-200: #{$color-primary-200};
-  --color-primary-300: #{$color-primary-300};
-  --color-primary-400: #{$color-primary-400};
-  --color-primary-500: #{$color-primary-500};
-  --color-primary-600: #{$color-primary-600};
-  --color-primary-700: #{$color-primary-700};
-  --color-primary-800: #{$color-primary-800};
-  --color-primary-900: #{$color-primary-900};
-
-  --color-secondary-50: #{$color-secondary-50};
-  --color-secondary-100: #{$color-secondary-100};
-  --color-secondary-200: #{$color-secondary-200};
-  --color-secondary-300: #{$color-secondary-300};
-  --color-secondary-400: #{$color-secondary-400};
-  --color-secondary-500: #{$color-secondary-500};
-  --color-secondary-600: #{$color-secondary-600};
-  --color-secondary-700: #{$color-secondary-700};
-  --color-secondary-800: #{$color-secondary-800};
-  --color-secondary-900: #{$color-secondary-900};
-
+  // Semantic Color Custom Properties
+  --color-action: #{$color-action};
+  --color-info: #{$color-info};
   --color-success: #{$color-success};
   --color-warning: #{$color-warning};
-  --color-error: #{$color-error};
-  --color-info: #{$color-info};
-
-  --color-white: #{$color-white};
-  --color-black: #{$color-black};
-  --color-gray-50: #{$color-gray-50};
-  --color-gray-100: #{$color-gray-100};
-  --color-gray-200: #{$color-gray-200};
-  --color-gray-300: #{$color-gray-300};
-  --color-gray-400: #{$color-gray-400};
-  --color-gray-500: #{$color-gray-500};
-  --color-gray-600: #{$color-gray-600};
-  --color-gray-700: #{$color-gray-700};
-  --color-gray-800: #{$color-gray-800};
-  --color-gray-900: #{$color-gray-900};
+  --color-critical: #{$color-critical};
+  --color-neutral: #{$color-neutral};
 
   --color-background-primary: #{$color-background-primary};
   --color-background-secondary: #{$color-background-secondary};
