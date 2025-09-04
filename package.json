@@ -1,0 +1,29 @@
+{
+  "name": "design-token-base",
+  "version": "1.0.0",
+  "description": "A comprehensive design token system for building consistent design systems",
+  "main": "index.html",
+  "scripts": {
+    "build": "sass tokens/scss/tokens.scss tokens.css --style=expanded",
+    "build:compressed": "sass tokens/scss/tokens.scss tokens.css --style=compressed",
+    "watch": "sass tokens/scss/tokens.scss tokens.css --style=expanded --watch",
+    "dev": "sass tokens/scss/tokens.scss tokens.css --style=expanded --watch & python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "design-tokens",
+    "scss",
+    "css",
+    "design-system",
+    "tokens"
+  ],
+  "author": "Design Token System",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  }
+}

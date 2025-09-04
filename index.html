@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Token System Demo</title>
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="demo/demo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="demo-container">
+        <header class="demo-header">
+            <h1 class="demo-title">Design Token System</h1>
+            <p class="demo-subtitle">A comprehensive token system for building consistent design systems</p>
+        </header>
+
+        <main class="demo-main">
+            <!-- Color Tokens Section -->
+            <section class="demo-section">
+                <h2 class="section-title">Color Tokens</h2>
+                
+                <div class="color-grid">
+                    <div class="color-group">
+                        <h3>Primary Colors</h3>
+                        <div class="color-palette">
+                            <div class="color-swatch" style="background-color: var(--color-primary-50);">50</div>
+                            <div class="color-swatch" style="background-color: var(--color-primary-100);">100</div>
+                            <div class="color-swatch" style="background-color: var(--color-primary-200);">200</div>
+                            <div class="color-swatch" style="background-color: var(--color-primary-300);">300</div>
+                            <div class="color-swatch" style="background-color: var(--color-primary-400);">400</div>
+                            <div class="color-swatch" style="background-color: var(--color-primary-500);">500</div>
+                            <div class="color-swatch" style="background-color: var(--color-primary-600);">600</div>
+                            <div class="color-swatch" style="background-color: var(--color-primary-700);">700</div>
+                            <div class="color-swatch" style="background-color: var(--color-primary-800);">800</div>
+                            <div class="color-swatch" style="background-color: var(--color-primary-900);">900</div>
+                        </div>
+                    </div>
+
+                    <div class="color-group">
+                        <h3>Neutral Colors</h3>
+                        <div class="color-palette">
+                            <div class="color-swatch" style="background-color: var(--color-gray-50);">50</div>
+                            <div class="color-swatch" style="background-color: var(--color-gray-100);">100</div>
+                            <div class="color-swatch" style="background-color: var(--color-gray-200);">200</div>
+                            <div class="color-swatch" style="background-color: var(--color-gray-300);">300</div>
+                            <div class="color-swatch" style="background-color: var(--color-gray-400);">400</div>
+                            <div class="color-swatch" style="background-color: var(--color-gray-500);">500</div>
+                            <div class="color-swatch" style="background-color: var(--color-gray-600);">600</div>
+                            <div class="color-swatch" style="background-color: var(--color-gray-700);">700</div>
+                            <div class="color-swatch" style="background-color: var(--color-gray-800);">800</div>
+                            <div class="color-swatch" style="background-color: var(--color-gray-900);">900</div>
+                        </div>
+                    </div>
+
+                    <div class="color-group">
+                        <h3>Semantic Colors</h3>
+                        <div class="color-palette">
+                            <div class="color-swatch" style="background-color: var(--color-success);">Success</div>
+                            <div class="color-swatch" style="background-color: var(--color-warning);">Warning</div>
+                            <div class="color-swatch" style="background-color: var(--color-error);">Error</div>
+                            <div class="color-swatch" style="background-color: var(--color-info);">Info</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Typography Tokens Section -->
+            <section class="demo-section">
+                <h2 class="section-title">Typography Tokens</h2>
+                
+                <div class="typography-showcase">
+                    <div class="text-sample">
+                        <h1 class="text-6xl">Heading 1 - 6xl</h1>
+                        <h2 class="text-5xl">Heading 2 - 5xl</h2>
+                        <h3 class="text-4xl">Heading 3 - 4xl</h3>
+                        <h4 class="text-3xl">Heading 4 - 3xl</h4>
+                        <h5 class="text-2xl">Heading 5 - 2xl</h5>
+                        <h6 class="text-xl">Heading 6 - xl</h6>
+                        <p class="text-lg">Large paragraph text - lg</p>
+                        <p class="text-base">Base paragraph text - base</p>
+                        <p class="text-sm">Small text - sm</p>
+                        <p class="text-xs">Extra small text - xs</p>
+                    </div>
+
+                    <div class="font-weight-showcase">
+                        <h3>Font Weights</h3>
+                        <p class="font-thin">Thin (100)</p>
+                        <p class="font-light">Light (300)</p>
+                        <p class="font-normal">Normal (400)</p>
+                        <p class="font-medium">Medium (500)</p>
+                        <p class="font-semibold">Semibold (600)</p>
+                        <p class="font-bold">Bold (700)</p>
+                        <p class="font-extrabold">Extrabold (800)</p>
+                        <p class="font-black">Black (900)</p>
+                    </div>
+
+                    <div class="font-family-showcase">
+                        <h3>Font Families</h3>
+                        <p class="font-primary">Primary Font (Inter)</p>
+                        <p class="font-secondary">Secondary Font (Georgia)</p>
+                        <p class="font-mono">Monospace Font (JetBrains Mono)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spacing Tokens Section -->
+            <section class="demo-section">
+                <h2 class="section-title">Spacing Tokens</h2>
+                
+                <div class="spacing-showcase">
+                    <div class="spacing-demo">
+                        <h3>Margin & Padding Scale</h3>
+                        <div class="spacing-examples">
+                            <div class="spacing-box spacing-xs">XS (4px)</div>
+                            <div class="spacing-box spacing-sm">SM (8px)</div>
+                            <div class="spacing-box spacing-md">MD (16px)</div>
+                            <div class="spacing-box spacing-lg">LG (24px)</div>
+                            <div class="spacing-box spacing-xl">XL (32px)</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Shadow Tokens Section -->
+            <section class="demo-section">
+                <h2 class="section-title">Shadow Tokens</h2>
+                
+                <div class="shadow-showcase">
+                    <div class="shadow-demo shadow-xs">Extra Small Shadow</div>
+                    <div class="shadow-demo shadow-sm">Small Shadow</div>
+                    <div class="shadow-demo shadow-md">Medium Shadow</div>
+                    <div class="shadow-demo shadow-lg">Large Shadow</div>
+                    <div class="shadow-demo shadow-xl">Extra Large Shadow</div>
+                    <div class="shadow-demo shadow-2xl">2X Large Shadow</div>
+                </div>
+            </section>
+
+            <!-- Border Tokens Section -->
+            <section class="demo-section">
+                <h2 class="section-title">Border Tokens</h2>
+                
+                <div class="border-showcase">
+                    <div class="border-demo border-radius-sm">Small Radius</div>
+                    <div class="border-demo border-radius-md">Medium Radius</div>
+                    <div class="border-demo border-radius-lg">Large Radius</div>
+                    <div class="border-demo border-radius-xl">Extra Large Radius</div>
+                    <div class="border-demo border-radius-2xl">2X Large Radius</div>
+                    <div class="border-demo border-radius-full">Full Radius</div>
+                </div>
+            </section>
+
+            <!-- Component Examples Section -->
+            <section class="demo-section">
+                <h2 class="section-title">Component Examples</h2>
+                
+                <div class="component-showcase">
+                    <div class="button-group">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                        <button class="btn btn-success">Success Button</button>
+                        <button class="btn btn-warning">Warning Button</button>
+                        <button class="btn btn-error">Error Button</button>
+                    </div>
+
+                    <div class="card-group">
+                        <div class="card">
+                            <h3>Card Title</h3>
+                            <p>This is a card component using our design tokens for consistent styling.</p>
+                            <button class="btn btn-primary">Action</button>
+                        </div>
+                        <div class="card">
+                            <h3>Another Card</h3>
+                            <p>Cards demonstrate spacing, typography, and color tokens working together.</p>
+                            <button class="btn btn-secondary">Action</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Form Elements</h3>
+                        <div class="form-field">
+                            <label for="input1">Text Input</label>
+                            <input type="text" id="input1" placeholder="Enter text here">
+                        </div>
+                        <div class="form-field">
+                            <label for="select1">Select Input</label>
+                            <select id="select1">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="demo-footer">
+            <p>Design Token System Demo - Built with SCSS and CSS Custom Properties</p>
+        </footer>
+    </div>
+
+    <script src="demo/demo.js"></script>
+</body>
+</html>
