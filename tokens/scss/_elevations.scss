@@ -1,0 +1,42 @@
+// Elevation Tokens
+// Base and scalar variable system for consistent elevation shadows
+
+:root {
+  // Base elevation variables
+  --elevation-color: oklch(from var(--color-neutral) calc(l - 0.4) c h);
+  --elevation-offset-x: 0px;
+  --elevation-offset-y: 1px;
+  --elevation-blur: 2px;
+  --elevation-spread: 0px;
+  
+  // Scalar variables for elevation multipliers
+  --elevation-scalar-offset-y: 2px;
+  --elevation-scalar-blur: 3px;
+  --elevation-scalar-spread: 1px;
+  
+  // Elevation levels using calc() with base and scalar values
+  --elevation-01: var(--elevation-offset-x) var(--elevation-offset-y) var(--elevation-blur) var(--elevation-spread) var(--elevation-color);
+  --elevation-02: var(--elevation-offset-x) calc(var(--elevation-offset-y) + var(--elevation-scalar-offset-y)) calc(var(--elevation-blur) + var(--elevation-scalar-blur)) var(--elevation-spread) var(--elevation-color);
+  --elevation-03: var(--elevation-offset-x) calc(var(--elevation-offset-y) + calc(var(--elevation-scalar-offset-y) * 2)) calc(var(--elevation-blur) + calc(var(--elevation-scalar-blur) * 2)) var(--elevation-spread) var(--elevation-color);
+  --elevation-04: var(--elevation-offset-x) calc(var(--elevation-offset-y) + calc(var(--elevation-scalar-offset-y) * 3)) calc(var(--elevation-blur) + calc(var(--elevation-scalar-blur) * 3)) var(--elevation-spread) var(--elevation-color);
+  --elevation-05: var(--elevation-offset-x) calc(var(--elevation-offset-y) + calc(var(--elevation-scalar-offset-y) * 4)) calc(var(--elevation-blur) + calc(var(--elevation-scalar-blur) * 4)) var(--elevation-spread) var(--elevation-color);
+  
+  // Text elevations (simplified for text shadows)
+  --text-elevation-sm: 0 1px 2px var(--elevation-color);
+  --text-elevation-md: 0 2px 4px var(--elevation-color);
+  --text-elevation-lg: 0 4px 8px var(--elevation-color);
+  
+  // Inner elevation
+  --elevation-inner: inset 0 2px 4px 0 var(--elevation-color);
+}
+
+// SCSS variables for colored elevations (require rgba() function)
+$elevation-primary: 0 4px 14px 0 rgba(14, 165, 233, 0.25);
+$elevation-success: 0 4px 14px 0 rgba(16, 185, 129, 0.25);
+$elevation-warning: 0 4px 14px 0 rgba(245, 158, 11, 0.25);
+$elevation-error: 0 4px 14px 0 rgba(239, 68, 68, 0.25);
+
+// Focus elevations (require rgba() function)
+$elevation-focus: 0 0 0 3px rgba(14, 165, 233, 0.1);
+$elevation-focus-error: 0 0 0 3px rgba(239, 68, 68, 0.1);
+$elevation-focus-success: 0 0 0 3px rgba(16, 185, 129, 0.1);

@@ -119,7 +119,7 @@ function showNotification(message) {
         color: var(--color-white);
         padding: var(--spacing-3) var(--spacing-6);
         border-radius: var(--border-radius-md);
-        box-shadow: var(--shadow-lg);
+        box-shadow: var(--elevation-04);
         z-index: 1001;
         font-size: var(--font-size-3);
         font-weight: var(--font-weight-medium);

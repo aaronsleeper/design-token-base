@@ -103,24 +103,21 @@
   padding: var(--spacing-xl);
 }
 
-// Shadow utility classes
-.shadow-xs {
-  box-shadow: var(--shadow-xs);
+// Elevation utility classes
+.elevation-01 {
+  box-shadow: var(--elevation-01);
 }
-.shadow-sm {
-  box-shadow: var(--shadow-sm);
+.elevation-02 {
+  box-shadow: var(--elevation-02);
 }
-.shadow-md {
-  box-shadow: var(--shadow-md);
+.elevation-03 {
+  box-shadow: var(--elevation-03);
 }
-.shadow-lg {
-  box-shadow: var(--shadow-lg);
+.elevation-04 {
+  box-shadow: var(--elevation-04);
 }
-.shadow-xl {
-  box-shadow: var(--shadow-xl);
-}
-.shadow-2xl {
-  box-shadow: var(--shadow-2xl);
+.elevation-05 {
+  box-shadow: var(--elevation-05);
 }
 
 // Border radius utility classes

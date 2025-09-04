@@ -95,16 +95,23 @@
 }
 
 :root {
-  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  --text-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --text-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --text-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --elevation-color: oklch(from var(--color-neutral) calc(l - 0.4) c h);
+  --elevation-offset-x: 0px;
+  --elevation-offset-y: 1px;
+  --elevation-blur: 2px;
+  --elevation-spread: 0px;
+  --elevation-scalar-offset-y: 2px;
+  --elevation-scalar-blur: 3px;
+  --elevation-scalar-spread: 1px;
+  --elevation-01: var(--elevation-offset-x) var(--elevation-offset-y) var(--elevation-blur) var(--elevation-spread) var(--elevation-color);
+  --elevation-02: var(--elevation-offset-x) calc(var(--elevation-offset-y) + var(--elevation-scalar-offset-y)) calc(var(--elevation-blur) + var(--elevation-scalar-blur)) var(--elevation-spread) var(--elevation-color);
+  --elevation-03: var(--elevation-offset-x) calc(var(--elevation-offset-y) + calc(var(--elevation-scalar-offset-y) * 2)) calc(var(--elevation-blur) + calc(var(--elevation-scalar-blur) * 2)) var(--elevation-spread) var(--elevation-color);
+  --elevation-04: var(--elevation-offset-x) calc(var(--elevation-offset-y) + calc(var(--elevation-scalar-offset-y) * 3)) calc(var(--elevation-blur) + calc(var(--elevation-scalar-blur) * 3)) var(--elevation-spread) var(--elevation-color);
+  --elevation-05: var(--elevation-offset-x) calc(var(--elevation-offset-y) + calc(var(--elevation-scalar-offset-y) * 4)) calc(var(--elevation-blur) + calc(var(--elevation-scalar-blur) * 4)) var(--elevation-spread) var(--elevation-color);
+  --text-elevation-sm: 0 1px 2px var(--elevation-color);
+  --text-elevation-md: 0 2px 4px var(--elevation-color);
+  --text-elevation-lg: 0 4px 8px var(--elevation-color);
+  --elevation-inner: inset 0 2px 4px 0 var(--elevation-color);
 }
 
 :root {
@@ -289,28 +296,24 @@
   padding: var(--spacing-xl);
 }
 
-.shadow-xs {
-  box-shadow: var(--shadow-xs);
+.elevation-01 {
+  box-shadow: var(--elevation-01);
 }
 
-.shadow-sm {
-  box-shadow: var(--shadow-sm);
+.elevation-02 {
+  box-shadow: var(--elevation-02);
 }
 
-.shadow-md {
-  box-shadow: var(--shadow-md);
+.elevation-03 {
+  box-shadow: var(--elevation-03);
 }
 
-.shadow-lg {
-  box-shadow: var(--shadow-lg);
+.elevation-04 {
+  box-shadow: var(--elevation-04);
 }
 
-.shadow-xl {
-  box-shadow: var(--shadow-xl);
-}
-
-.shadow-2xl {
-  box-shadow: var(--shadow-2xl);
+.elevation-05 {
+  box-shadow: var(--elevation-05);
 }
 
 .border-radius-sm {

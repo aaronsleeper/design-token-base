@@ -38,7 +38,7 @@
   padding: var(--spacing-8);
   background-color: var(--color-background-secondary);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--elevation-02);
 }
 
 .section-title {
@@ -89,9 +89,9 @@
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-medium);
   color: var(--color-white);
-  text-shadow: var(--text-shadow-sm);
+  text-shadow: var(--text-elevation-sm);
   border: var(--border-width-1) solid var(--color-border-primary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--elevation-02);
 }
 
 /* Typography Tokens Demo */
@@ -159,14 +159,14 @@
   color: var(--color-primary-700);
 }
 
-/* Shadow Tokens Demo */
-.shadow-showcase {
+/* Elevation Tokens Demo */
+.elevation-showcase {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--spacing-6);
 }
 
-.shadow-demo {
+.elevation-demo {
   background-color: var(--color-white);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-6);
@@ -220,12 +220,12 @@
 
 .btn:hover {
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--elevation-03);
 }
 
 .btn:focus {
   outline: none;
-  box-shadow: var(--shadow-focus);
+  box-shadow: var(--elevation-focus);
 }
 
 .btn-action {
@@ -292,7 +292,7 @@
   background-color: var(--color-white);
   border-radius: var(--border-radius-card);
   padding: var(--spacing-6);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--elevation-03);
   border: var(--border-width-1) solid var(--color-border-primary);
 }
 
@@ -313,7 +313,7 @@
   background-color: var(--color-white);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-6);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--elevation-02);
   border: var(--border-width-1) solid var(--color-border-primary);
 }
 
@@ -351,7 +351,7 @@
 .form-field select:focus {
   outline: none;
   border-color: var(--color-border-focus);
-  box-shadow: var(--shadow-focus);
+  box-shadow: var(--elevation-focus);
 }
 
 /* Footer */
