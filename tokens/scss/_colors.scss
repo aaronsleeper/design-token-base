@@ -1,27 +1,29 @@
 // Color Tokens
 // Base semantic color definitions using single LCH values
-// All other colors are derived from these base tokens using color-mix()
+// All other colors are derived from these base tokens using oklch(from ...) syntax
 
-// Base Semantic Colors
-$color-action: oklch(68% 0.15 237.33);
-$color-info: oklch(65% 0.15 250);
-$color-success: oklch(65% 0.15 140);
-$color-warning: oklch(75% 0.15 60);
-$color-critical: oklch(60% 0.15 20);
-$color-neutral: oklch(50% 0 0);
+:root {
+  // Base Semantic Colors
+  --color-action: oklch(68% 0.15 237.33);
+  --color-info: oklch(65% 0.15 250);
+  --color-success: oklch(65% 0.15 140);
+  --color-warning: oklch(75% 0.15 60);
+  --color-critical: oklch(60% 0.15 20);
+  --color-neutral: oklch(50% 0 0);
 
-// Background Colors - derived from neutral using oklch(from ...) syntax
-$color-background-primary: oklch(from $color-neutral calc(l + 0.50) c h);
-$color-background-secondary: oklch(from $color-neutral calc(l + 0.40) c h);
-$color-background-tertiary: oklch(from $color-neutral calc(l + 0.30) c h);
+  // Background Colors - derived from neutral using oklch(from ...) syntax
+  --color-background-primary: oklch(from var(--color-neutral) calc(l + 0.5) c h);
+  --color-background-secondary: oklch(from var(--color-neutral) calc(l + 0.4) c h);
+  --color-background-tertiary: oklch(from var(--color-neutral) calc(l + 0.3) c h);
 
-// Text Colors - derived from neutral using oklch(from ...) syntax
-$color-text-primary: oklch(from $color-neutral calc(l - 0.30) c h);
-$color-text-secondary: oklch(from $color-neutral calc(l - 0.10) c h);
-$color-text-tertiary: oklch(from $color-neutral calc(l + 0.10) c h);
-$color-text-inverse: oklch(from $color-neutral calc(l + 0.50) c h);
+  // Text Colors - derived from neutral using oklch(from ...) syntax
+  --color-text-primary: oklch(from var(--color-neutral) calc(l - 0.3) c h);
+  --color-text-secondary: oklch(from var(--color-neutral) calc(l - 0.1) c h);
+  --color-text-tertiary: oklch(from var(--color-neutral) calc(l + 0.1) c h);
+  --color-text-inverse: oklch(from var(--color-neutral) calc(l + 0.5) c h);
 
-// Border Colors - derived from neutral using oklch(from ...) syntax
-$color-border-primary: oklch(from $color-neutral calc(l + 0.40) c h);
-$color-border-secondary: oklch(from $color-neutral calc(l + 0.35) c h);
-$color-border-focus: $color-action;
+  // Border Colors - derived from neutral using oklch(from ...) syntax
+  --color-border-primary: oklch(from var(--color-neutral) calc(l + 0.4) c h);
+  --color-border-secondary: oklch(from var(--color-neutral) calc(l + 0.35) c h);
+  --color-border-focus: var(--color-action);
+}
