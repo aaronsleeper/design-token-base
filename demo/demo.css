@@ -234,7 +234,7 @@
 }
 
 .btn-action:hover {
-  background-color: color-mix(in oklch, var(--color-action) 80%, black);
+  background-color: oklch(from var(--color-action) calc(l - 0.10) c h);
 }
 
 .btn-info {
@@ -243,7 +243,7 @@
 }
 
 .btn-info:hover {
-  background-color: color-mix(in oklch, var(--color-info) 80%, black);
+  background-color: oklch(from var(--color-info) calc(l - 0.10) c h);
 }
 
 .btn-success {
@@ -252,7 +252,7 @@
 }
 
 .btn-success:hover {
-  background-color: color-mix(in oklch, var(--color-success) 80%, black);
+  background-color: oklch(from var(--color-success) calc(l - 0.10) c h);
 }
 
 .btn-warning {
@@ -261,7 +261,7 @@
 }
 
 .btn-warning:hover {
-  background-color: color-mix(in oklch, var(--color-warning) 80%, black);
+  background-color: oklch(from var(--color-warning) calc(l - 0.10) c h);
 }
 
 .btn-critical {
@@ -270,7 +270,7 @@
 }
 
 .btn-critical:hover {
-  background-color: color-mix(in oklch, var(--color-critical) 80%, black);
+  background-color: oklch(from var(--color-critical) calc(l - 0.10) c h);
 }
 
 .btn-neutral {
@@ -279,7 +279,7 @@
 }
 
 .btn-neutral:hover {
-  background-color: color-mix(in oklch, var(--color-neutral) 80%, black);
+  background-color: oklch(from var(--color-neutral) calc(l - 0.10) c h);
 }
 
 .card-group {
