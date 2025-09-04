@@ -1,0 +1,96 @@
+# CSS Variables Preference Rule
+
+## Rule: Prefer CSS Custom Properties over SCSS Variables
+
+When working with design tokens in this project, always prefer CSS custom properties (CSS variables) over SCSS variables unless the use case specifically requires SCSS functionality that is not available in CSS.
+
+### When to Use CSS Custom Properties
+
+Use CSS custom properties (`var(--token-name)`) in the following scenarios:
+
+- **Component styling** - When writing CSS for components, use CSS custom properties
+- **HTML inline styles** - When applying styles directly in HTML
+- **JavaScript styling** - When dynamically setting styles via JavaScript
+- **Cross-file consistency** - When you need the same token value across multiple CSS files
+- **Runtime theming** - When values need to be changeable at runtime
+- **Browser DevTools** - When you want easy inspection and modification in browser tools
+
+### When to Use SCSS Variables
+
+Use SCSS variables (`$token-name`) only when:
+
+- **SCSS functions are required** - When using SCSS functions like `darken()`, `lighten()`, `mix()`, `rgba()`, etc.
+- **SCSS calculations** - When performing mathematical operations that require SCSS
+- **SCSS mixins** - When creating mixins that need to use SCSS-specific features
+- **SCSS loops** - When generating repetitive code with SCSS loops
+- **SCSS conditionals** - When using SCSS `@if` statements or similar control structures
+- **Token generation** - When creating the initial token definitions in SCSS files
+
+### Examples
+
+#### ✅ Preferred: CSS Custom Properties
+```css
+.button {
+  background-color: var(--color-primary-500);
+  padding: var(--spacing-4);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+```
+
+#### ❌ Avoid: SCSS Variables in CSS
+```css
+.button {
+  background-color: $color-primary-500; /* Don't do this in CSS files */
+  padding: $spacing-4;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-md;
+}
+```
+
+#### ✅ Correct: SCSS Variables in SCSS with Functions
+```scss
+.button {
+  background-color: $color-primary-500;
+  border: 1px solid darken($color-primary-500, 10%); /* SCSS function required */
+  box-shadow: 0 0 0 3px rgba($color-primary-500, 0.1); /* SCSS function required */
+}
+```
+
+#### ✅ Correct: SCSS Variables for Token Generation
+```scss
+// In tokens/scss/_colors.scss
+$color-primary-500: #0ea5e9;
+
+// In tokens/scss/tokens.scss - converting to CSS custom properties
+:root {
+  --color-primary-500: #{$color-primary-500};
+}
+```
+
+### Implementation Guidelines
+
+1. **Token Definition**: Define tokens as SCSS variables in the `tokens/scss/` files
+2. **Token Conversion**: Convert SCSS variables to CSS custom properties in `tokens.scss`
+3. **Component Usage**: Use CSS custom properties in all component CSS files
+4. **Documentation**: Document any exceptions where SCSS variables are necessary
+
+### Benefits of This Approach
+
+- **Runtime Flexibility**: CSS custom properties can be changed at runtime
+- **Browser Support**: Better browser DevTools integration
+- **Performance**: CSS custom properties are optimized by modern browsers
+- **Maintainability**: Easier to debug and modify in browser tools
+- **Consistency**: Uniform approach across all CSS files
+- **Future-Proof**: Aligns with modern CSS best practices
+
+### Exception Handling
+
+If you encounter a scenario where SCSS variables seem necessary but CSS custom properties could work, consider:
+
+1. **CSS `calc()`** - For mathematical operations
+2. **CSS `clamp()`** - For responsive values
+3. **CSS `min()`/`max()`** - For conditional values
+4. **CSS custom property fallbacks** - For default values
+
+Only use SCSS variables when these CSS alternatives are insufficient for the specific use case.
