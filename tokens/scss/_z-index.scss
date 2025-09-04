@@ -1,19 +1,21 @@
 // Z-Index Tokens
 
-// Z-Index Scale
-$z-index-0: 0;
-$z-index-10: 10;
-$z-index-20: 20;
-$z-index-30: 30;
-$z-index-40: 40;
-$z-index-50: 50;
+:root {
+  // Z-Index Scale
+  --z-index-0: 0;
+  --z-index-10: 10;
+  --z-index-20: 20;
+  --z-index-30: 30;
+  --z-index-40: 40;
+  --z-index-50: 50;
 
-// Semantic Z-Index Values
-$z-index-dropdown: $z-index-10;
-$z-index-sticky: $z-index-20;
-$z-index-fixed: $z-index-30;
-$z-index-modal-backdrop: $z-index-40;
-$z-index-modal: $z-index-50;
-$z-index-popover: $z-index-50;
-$z-index-tooltip: $z-index-50;
-$z-index-toast: $z-index-50;
+  // Semantic Z-Index Values
+  --z-index-dropdown: var(--z-index-10);
+  --z-index-sticky: var(--z-index-20);
+  --z-index-fixed: var(--z-index-30);
+  --z-index-modal-backdrop: var(--z-index-40);
+  --z-index-modal: var(--z-index-50);
+  --z-index-popover: var(--z-index-50);
+  --z-index-tooltip: var(--z-index-50);
+  --z-index-toast: var(--z-index-50);
+}
