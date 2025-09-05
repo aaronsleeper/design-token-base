@@ -2,9 +2,9 @@
 
 :root {
 	// Font Families
-	--font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-	--font-family-secondary: 'Georgia', 'Times New Roman', serif;
-	--font-family-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+	--font-family-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-family-serif: 'Roboto Serif', 'Georgia', 'Times New Roman', serif;
+	--font-family-mono: 'Roboto Mono', 'Monaco', 'Consolas', monospace;
 
 	// Font Sizes (using user's preferred naming convention)
 	--font-size-1: 0.75rem; // 12px
