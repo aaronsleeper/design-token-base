@@ -44,6 +44,7 @@
 		const Ly = cssNum(ROOT, '--light-pos-y', -200);
 		const Lz = cssNum(ROOT, '--light-pos-z', 600);
 		const intensityLux = cssNum(ROOT, '--light-intensity-lux', 2000);
+		
 
 		// Deltas (same space)
 		const dx = Lx - ox;

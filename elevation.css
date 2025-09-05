@@ -4,11 +4,11 @@
 	--elevation-dynamic-enabled: true;
 
 	/* Light (viewport coordinate space; unitless numbers interpreted as px) */
-	--light-pos-x: 50; /* px (number) */
-	--light-pos-y: -200; /* px (number) */
-	--light-pos-z: 600; /* px (number) height above plane */
-	--light-radius: 60; /* px (number) apparent size */
-	--light-intensity-lux: 2000;
+	--light-pos-x: 400; /* px (number) - more centered */
+	--light-pos-y: -100; /* px (number) - closer to viewport */
+	--light-pos-z: 400; /* px (number) height above plane - lower for more dramatic shadows */
+	--light-radius: 80; /* px (number) apparent size - larger for softer shadows */
+	--light-intensity-lux: 3000; /* Higher intensity for more visible shadows */
 
 	/* Ambient - use design token colors when available */
 	--ambient-color: var(--color-background-primary, oklch(0.92 0.03 230));
@@ -63,10 +63,13 @@
 	--ao: var(--ambient-occlusion);
 	--alpha: calc(var(--alpha-base) * (1 - var(--k-ambient) * var(--ambient-norm)) * (1 - var(--ao)));
 
-	/* Color */
+	/* Color - simplified for debugging */
 	--object-albedo-pct: calc(var(--object-albedo) * 100%);
 	--shadow-base-color: color-mix(in oklch, var(--object-color) var(--object-albedo-pct), var(--ambient-color));
 	--shadow-color: oklch(from var(--shadow-base-color) calc(l * 0.85) c h);
+	
+	/* Debug: Use a simple black shadow for testing */
+	--shadow-color-debug: rgba(0, 0, 0, 0.3);
 
 	/* Layer derivations */
 	--alpha-1: calc(var(--k-a-1) * var(--alpha));
@@ -84,20 +87,22 @@
 	--blur-2: calc(var(--k-blur-2) * var(--shadow-blur));
 	--blur-3: calc(var(--k-blur-3) * var(--shadow-blur));
 
-	/* Compose (multiply unitless by 1px on use) */
-	box-shadow: calc(var(--ofs-x-1) * 1px) calc(var(--ofs-y-1) * 1px) calc(var(--blur-1) * 1px) 0 oklch(
-				from var(--shadow-color) l c h / clamp(0, var(--alpha-1), 0.6)
-			), calc(var(--ofs-x-2) * 1px) calc(var(--ofs-y-2) * 1px) calc(var(--blur-2) * 1px) 0 oklch(
-				from var(--shadow-color) l c h / clamp(0, var(--alpha-2), 0.6)
-			),
-		calc(var(--ofs-x-3) * 1px) calc(var(--ofs-y-3) * 1px) calc(var(--blur-3) * 1px) 0 oklch(
-				from var(--shadow-color) l c h / clamp(0, var(--alpha-3), 0.6)
-			);
+	/* Compose (multiply unitless by 1px on use) - simplified for debugging */
+	box-shadow: calc(var(--ofs-x-1) * 1px) calc(var(--ofs-y-1) * 1px) calc(var(--blur-1) * 1px) 0 rgba(0, 0, 0, 0.3),
+	            calc(var(--ofs-x-2) * 1px) calc(var(--ofs-y-2) * 1px) calc(var(--blur-2) * 1px) 0 rgba(0, 0, 0, 0.2),
+	            calc(var(--ofs-x-3) * 1px) calc(var(--ofs-y-3) * 1px) calc(var(--blur-3) * 1px) 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Fallback for browsers without OKLCH (very basic) */
 @supports not (color: oklch(0.5 0 0)) {
 	.elev {
-		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 8px 12px rgba(0, 0, 0, 0.12), 0 16px 24px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 12px 16px rgba(0, 0, 0, 0.2), 0 24px 32px rgba(0, 0, 0, 0.15);
 	}
+}
+
+/* Debug: Make sure .elev elements are visible */
+.elev {
+	/* Ensure elements have some visual indication they're elevated */
+	position: relative;
+	z-index: 1;
 }

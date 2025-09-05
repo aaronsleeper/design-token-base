@@ -180,28 +180,28 @@
             <div class="controls-grid">
                 <div class="control-group">
                     <label class="control-label" for="light-x">Light X Position</label>
-                    <input type="range" id="light-x" class="control-input" min="0" max="1000" value="50">
-                    <span class="example-value" id="light-x-value">50px</span>
+                    <input type="range" id="light-x" class="control-input" min="0" max="1000" value="400">
+                    <span class="example-value" id="light-x-value">400px</span>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="light-y">Light Y Position</label>
-                    <input type="range" id="light-y" class="control-input" min="-500" max="0" value="-200">
-                    <span class="example-value" id="light-y-value">-200px</span>
+                    <input type="range" id="light-y" class="control-input" min="-500" max="0" value="-100">
+                    <span class="example-value" id="light-y-value">-100px</span>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="light-z">Light Z Position</label>
-                    <input type="range" id="light-z" class="control-input" min="100" max="1000" value="600">
-                    <span class="example-value" id="light-z-value">600px</span>
+                    <input type="range" id="light-z" class="control-input" min="100" max="1000" value="400">
+                    <span class="example-value" id="light-z-value">400px</span>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="light-radius">Light Radius</label>
-                    <input type="range" id="light-radius" class="control-input" min="10" max="200" value="60">
-                    <span class="example-value" id="light-radius-value">60px</span>
+                    <input type="range" id="light-radius" class="control-input" min="10" max="200" value="80">
+                    <span class="example-value" id="light-radius-value">80px</span>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="light-intensity">Light Intensity</label>
-                    <input type="range" id="light-intensity" class="control-input" min="500" max="5000" value="2000">
-                    <span class="example-value" id="light-intensity-value">2000 lux</span>
+                    <input type="range" id="light-intensity" class="control-input" min="500" max="5000" value="3000">
+                    <span class="example-value" id="light-intensity-value">3000 lux</span>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="ambient-intensity">Ambient Intensity</label>
@@ -317,11 +317,11 @@
 
             // Reset button
             resetButton.addEventListener('click', () => {
-                controls.x.value = 50;
-                controls.y.value = -200;
-                controls.z.value = 600;
-                controls.radius.value = 60;
-                controls.intensity.value = 2000;
+                controls.x.value = 400;
+                controls.y.value = -100;
+                controls.z.value = 400;
+                controls.radius.value = 80;
+                controls.intensity.value = 3000;
                 controls.ambientIntensity.value = 500;
 
                 Object.keys(controls).forEach(key => {
