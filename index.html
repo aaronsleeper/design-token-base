@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Design Token System Demo</title>
     <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="elevation.css">
     <link rel="stylesheet" href="demo/demo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,6 +127,7 @@
             <!-- Shadow Tokens Section -->
             <section class="demo-section">
                 <h2 class="section-title">Elevation Tokens</h2>
+                <p class="section-description">Static elevation tokens for consistent shadows across your design system.</p>
                 
                 <div class="elevation-showcase">
                     <div class="elevation-demo elevation-01">Elevation 01</div>
@@ -133,6 +135,18 @@
                     <div class="elevation-demo elevation-03">Elevation 03</div>
                     <div class="elevation-demo elevation-04">Elevation 04</div>
                     <div class="elevation-demo elevation-05">Elevation 05</div>
+                </div>
+            </section>
+
+            <!-- Dynamic Elevation System Section -->
+            <section class="demo-section">
+                <h2 class="section-title">Dynamic Elevation System</h2>
+                <p class="section-description">Interactive elevation system with real-time shadow computation based on light source position. <a href="elevation-demo.html" style="color: var(--color-action);">View full demo →</a></p>
+                
+                <div class="elevation-showcase">
+                    <div class="elevation-demo elev" data-elev-z="8" data-albedo="0.8">Dynamic Elev 8px</div>
+                    <div class="elevation-demo elev" data-elev-z="24" data-albedo="0.6">Dynamic Elev 24px</div>
+                    <div class="elevation-demo elev" data-elev-z="48" data-albedo="0.4">Dynamic Elev 48px</div>
                 </div>
             </section>
 
@@ -201,6 +215,7 @@
         </footer>
     </div>
 
+    <script src="elevation.js"></script>
     <script src="demo/demo.js"></script>
 </body>
 </html>

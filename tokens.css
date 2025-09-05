@@ -112,6 +112,7 @@
   --text-elevation-md: 0 2px 4px var(--elevation-color);
   --text-elevation-lg: 0 4px 8px var(--elevation-color);
   --elevation-inner: inset 0 2px 4px 0 var(--elevation-color);
+  --elevation-dynamic-enabled: false;
 }
 
 :root {

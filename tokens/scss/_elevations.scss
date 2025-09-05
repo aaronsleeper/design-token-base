@@ -1,8 +1,9 @@
 // Elevation Tokens
-// Base and scalar variable system for consistent elevation shadows
+// Static elevation system for backward compatibility
+// For dynamic shadows, use the .elev class with elevation.css
 
 :root {
-  // Base elevation variables
+  // Base elevation variables (static fallbacks)
   --elevation-color: oklch(from var(--color-neutral) calc(l - 0.4) c h);
   --elevation-offset-x: 0px;
   --elevation-offset-y: 1px;
@@ -14,7 +15,7 @@
   --elevation-scalar-blur: 3px;
   --elevation-scalar-spread: 1px;
   
-  // Elevation levels using calc() with base and scalar values
+  // Static elevation levels using calc() with base and scalar values
   --elevation-01: var(--elevation-offset-x) var(--elevation-offset-y) var(--elevation-blur) var(--elevation-spread) var(--elevation-color);
   --elevation-02: var(--elevation-offset-x) calc(var(--elevation-offset-y) + var(--elevation-scalar-offset-y)) calc(var(--elevation-blur) + var(--elevation-scalar-blur)) var(--elevation-spread) var(--elevation-color);
   --elevation-03: var(--elevation-offset-x) calc(var(--elevation-offset-y) + calc(var(--elevation-scalar-offset-y) * 2)) calc(var(--elevation-blur) + calc(var(--elevation-scalar-blur) * 2)) var(--elevation-spread) var(--elevation-color);
@@ -28,6 +29,10 @@
   
   // Inner elevation
   --elevation-inner: inset 0 2px 4px 0 var(--elevation-color);
+  
+  // Dynamic elevation system integration
+  // These variables are used by elevation.css for the dynamic system
+  --elevation-dynamic-enabled: false; // Set to true when elevation.css is loaded
 }
 
 // SCSS variables for colored elevations (require rgba() function)

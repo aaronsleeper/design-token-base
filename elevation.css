@@ -1,0 +1,103 @@
+/* ---------- Theme / scene defaults on :root ---------- */
+:root {
+	/* Mark dynamic elevation system as enabled */
+	--elevation-dynamic-enabled: true;
+
+	/* Light (viewport coordinate space; unitless numbers interpreted as px) */
+	--light-pos-x: 50; /* px (number) */
+	--light-pos-y: -200; /* px (number) */
+	--light-pos-z: 600; /* px (number) height above plane */
+	--light-radius: 60; /* px (number) apparent size */
+	--light-intensity-lux: 2000;
+
+	/* Ambient - use design token colors when available */
+	--ambient-color: var(--color-background-primary, oklch(0.92 0.03 230));
+	--ambient-intensity-lux: 500;
+
+	/* Tuning constants */
+	--k-sigma: 1;
+	--k-alpha: 0.6;
+	--c-alpha: 0.015;
+	--k-ambient: 1;
+
+	/* Layer scales (contact / mid / far) */
+	--k-ofs-1: 0.3;
+	--k-blur-1: 0.5;
+	--k-a-1: 0.6;
+	--k-ofs-2: 0.7;
+	--k-blur-2: 1;
+	--k-a-2: 0.35;
+	--k-ofs-3: 1;
+	--k-blur-3: 2;
+	--k-a-3: 0.2;
+}
+
+/* ---------- Per-element defaults ---------- */
+.elev {
+	/* Inputs (can be overridden via data-attrs + JS) */
+	--object-pos-x: 0; /* px (number) set by JS */
+	--object-pos-y: 0; /* px (number) set by JS */
+	--object-pos-z: 0; /* px (number) set by JS or data-elev-z */
+	--object-color: var(--color-background-secondary, oklch(0.98 0.01 250));
+	--object-albedo: 0.7;
+	--ambient-occlusion: 0;
+
+	/* Intermediates (CSS calc) */
+	--delta-x: calc(var(--light-pos-x) - var(--object-pos-x));
+	--delta-y: calc(var(--light-pos-y) - var(--object-pos-y));
+	--delta-z: calc(var(--light-pos-z) - var(--object-pos-z));
+	/* --dist is provided by JS (sqrt not available in CSS) */
+
+	/* Geometry */
+	--h: var(--object-pos-z);
+	--shadow-offset-x: calc(var(--h) / var(--delta-z) * var(--delta-x));
+	--shadow-offset-y: calc(var(--h) / var(--delta-z) * var(--delta-y));
+	--shadow-blur: calc(var(--k-sigma) * (var(--light-radius) * var(--h) / var(--delta-z)));
+
+	/* Light/angle terms (dist, falloff provided by JS) */
+	--cos-theta: max(0, calc(var(--delta-z) / var(--dist)));
+	--alpha-base: calc(var(--k-alpha) * var(--falloff) * var(--cos-theta) / (1 + var(--c-alpha) * var(--shadow-blur)));
+
+	/* Ambient */
+	--ambient-norm: calc(var(--ambient-intensity-lux) / (var(--ambient-intensity-lux) + var(--light-intensity-lux)));
+	--ao: var(--ambient-occlusion);
+	--alpha: calc(var(--alpha-base) * (1 - var(--k-ambient) * var(--ambient-norm)) * (1 - var(--ao)));
+
+	/* Color */
+	--object-albedo-pct: calc(var(--object-albedo) * 100%);
+	--shadow-base-color: color-mix(in oklch, var(--object-color) var(--object-albedo-pct), var(--ambient-color));
+	--shadow-color: oklch(from var(--shadow-base-color) calc(l * 0.85) c h);
+
+	/* Layer derivations */
+	--alpha-1: calc(var(--k-a-1) * var(--alpha));
+	--alpha-2: calc(var(--k-a-2) * var(--alpha));
+	--alpha-3: calc(var(--k-a-3) * var(--alpha));
+
+	--ofs-x-1: calc(var(--k-ofs-1) * var(--shadow-offset-x));
+	--ofs-y-1: calc(var(--k-ofs-1) * var(--shadow-offset-y));
+	--ofs-x-2: calc(var(--k-ofs-2) * var(--shadow-offset-x));
+	--ofs-y-2: calc(var(--k-ofs-2) * var(--shadow-offset-y));
+	--ofs-x-3: calc(var(--k-ofs-3) * var(--shadow-offset-x));
+	--ofs-y-3: calc(var(--k-ofs-3) * var(--shadow-offset-y));
+
+	--blur-1: calc(var(--k-blur-1) * var(--shadow-blur));
+	--blur-2: calc(var(--k-blur-2) * var(--shadow-blur));
+	--blur-3: calc(var(--k-blur-3) * var(--shadow-blur));
+
+	/* Compose (multiply unitless by 1px on use) */
+	box-shadow: calc(var(--ofs-x-1) * 1px) calc(var(--ofs-y-1) * 1px) calc(var(--blur-1) * 1px) 0 oklch(
+				from var(--shadow-color) l c h / clamp(0, var(--alpha-1), 0.6)
+			), calc(var(--ofs-x-2) * 1px) calc(var(--ofs-y-2) * 1px) calc(var(--blur-2) * 1px) 0 oklch(
+				from var(--shadow-color) l c h / clamp(0, var(--alpha-2), 0.6)
+			),
+		calc(var(--ofs-x-3) * 1px) calc(var(--ofs-y-3) * 1px) calc(var(--blur-3) * 1px) 0 oklch(
+				from var(--shadow-color) l c h / clamp(0, var(--alpha-3), 0.6)
+			);
+}
+
+/* Fallback for browsers without OKLCH (very basic) */
+@supports not (color: oklch(0.5 0 0)) {
+	.elev {
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 8px 12px rgba(0, 0, 0, 0.12), 0 16px 24px rgba(0, 0, 0, 0.08);
+	}
+}

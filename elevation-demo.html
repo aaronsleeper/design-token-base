@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevation System Demo</title>
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="elevation.css">
+    <style>
+        body {
+            font-family: var(--font-family-sans);
+            background: var(--color-background-primary);
+            color: var(--color-text-primary);
+            margin: 0;
+            padding: var(--spacing-6);
+            min-height: 100vh;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: var(--spacing-8);
+        }
+
+        .demo-title {
+            font-size: var(--font-size-8);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .demo-description {
+            font-size: var(--font-size-4);
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .controls-panel {
+            background: var(--color-background-secondary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .controls-title {
+            font-size: var(--font-size-5);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-4);
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-2);
+        }
+
+        .control-label {
+            font-size: var(--font-size-3);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .control-input {
+            padding: var(--spacing-2);
+            border: 1px solid var(--color-border-secondary);
+            border-radius: var(--border-radius-md);
+            background: var(--color-background-primary);
+            color: var(--color-text-primary);
+            font-size: var(--font-size-3);
+        }
+
+        .control-input:focus {
+            outline: none;
+            border-color: var(--color-border-focus);
+            box-shadow: 0 0 0 2px var(--color-border-focus);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .demo-card {
+            background: var(--color-background-secondary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-6);
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: var(--font-size-4);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .card-description {
+            font-size: var(--font-size-3);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .elevation-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-4);
+            margin-top: var(--spacing-8);
+        }
+
+        .elevation-example {
+            background: var(--color-background-secondary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-4);
+            text-align: center;
+        }
+
+        .example-title {
+            font-size: var(--font-size-3);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .example-value {
+            font-size: var(--font-size-2);
+            color: var(--color-text-secondary);
+            font-family: var(--font-family-mono);
+        }
+
+        .reset-button {
+            background: var(--color-action);
+            color: var(--color-text-inverse);
+            border: none;
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-3) var(--spacing-6);
+            font-size: var(--font-size-3);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .reset-button:hover {
+            background: oklch(from var(--color-action) calc(l - 0.1) c h);
+        }
+
+        .reset-button:active {
+            background: oklch(from var(--color-action) calc(l - 0.2) c h);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">Dynamic Elevation System</h1>
+            <p class="demo-description">
+                Interactive demonstration of the 3-layer soft-shadow elevation system. 
+                Adjust the light source parameters to see real-time shadow changes.
+            </p>
+        </div>
+
+        <div class="controls-panel">
+            <h2 class="controls-title">Light Source Controls</h2>
+            <div class="controls-grid">
+                <div class="control-group">
+                    <label class="control-label" for="light-x">Light X Position</label>
+                    <input type="range" id="light-x" class="control-input" min="0" max="1000" value="50">
+                    <span class="example-value" id="light-x-value">50px</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="light-y">Light Y Position</label>
+                    <input type="range" id="light-y" class="control-input" min="-500" max="0" value="-200">
+                    <span class="example-value" id="light-y-value">-200px</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="light-z">Light Z Position</label>
+                    <input type="range" id="light-z" class="control-input" min="100" max="1000" value="600">
+                    <span class="example-value" id="light-z-value">600px</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="light-radius">Light Radius</label>
+                    <input type="range" id="light-radius" class="control-input" min="10" max="200" value="60">
+                    <span class="example-value" id="light-radius-value">60px</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="light-intensity">Light Intensity</label>
+                    <input type="range" id="light-intensity" class="control-input" min="500" max="5000" value="2000">
+                    <span class="example-value" id="light-intensity-value">2000 lux</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="ambient-intensity">Ambient Intensity</label>
+                    <input type="range" id="ambient-intensity" class="control-input" min="100" max="1500" value="500">
+                    <span class="example-value" id="ambient-intensity-value">500 lux</span>
+                </div>
+            </div>
+            <div style="margin-top: var(--spacing-4); text-align: center;">
+                <button class="reset-button" id="reset-button">Reset to Defaults</button>
+            </div>
+        </div>
+
+        <div class="demo-grid">
+            <div class="demo-card elev" data-elev-z="8" data-albedo="0.8">
+                <h3 class="card-title">Card 1</h3>
+                <p class="card-description">Low elevation with high albedo</p>
+            </div>
+            <div class="demo-card elev" data-elev-z="24" data-albedo="0.6">
+                <h3 class="card-title">Card 2</h3>
+                <p class="card-description">Medium elevation with medium albedo</p>
+            </div>
+            <div class="demo-card elev" data-elev-z="48" data-albedo="0.4" data-ao="0.1">
+                <h3 class="card-title">Card 3</h3>
+                <p class="card-description">High elevation with low albedo and ambient occlusion</p>
+            </div>
+            <div class="demo-card elev" data-elev-z="16" data-surface="oklch(0.95 0.05 120)">
+                <h3 class="card-title">Card 4</h3>
+                <p class="card-description">Custom surface color</p>
+            </div>
+        </div>
+
+        <div class="elevation-examples">
+            <div class="elevation-example elev" data-elev-z="4">
+                <div class="example-title">Elevation 4px</div>
+                <div class="example-value">data-elev-z="4"</div>
+            </div>
+            <div class="elevation-example elev" data-elev-z="12">
+                <div class="example-title">Elevation 12px</div>
+                <div class="example-value">data-elev-z="12"</div>
+            </div>
+            <div class="elevation-example elev" data-elev-z="24">
+                <div class="example-title">Elevation 24px</div>
+                <div class="example-value">data-elev-z="24"</div>
+            </div>
+            <div class="elevation-example elev" data-elev-z="48">
+                <div class="example-title">Elevation 48px</div>
+                <div class="example-value">data-elev-z="48"</div>
+            </div>
+            <div class="elevation-example elev" data-elev-z="96">
+                <div class="example-title">Elevation 96px</div>
+                <div class="example-value">data-elev-z="96"</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="elevation.js"></script>
+    <script>
+        // Demo controls JavaScript (separate from elevation.js)
+        document.addEventListener('DOMContentLoaded', function() {
+            const controls = {
+                x: document.getElementById('light-x'),
+                y: document.getElementById('light-y'),
+                z: document.getElementById('light-z'),
+                radius: document.getElementById('light-radius'),
+                intensity: document.getElementById('light-intensity'),
+                ambientIntensity: document.getElementById('ambient-intensity')
+            };
+
+            const valueDisplays = {
+                x: document.getElementById('light-x-value'),
+                y: document.getElementById('light-y-value'),
+                z: document.getElementById('light-z-value'),
+                radius: document.getElementById('light-radius-value'),
+                intensity: document.getElementById('light-intensity-value'),
+                ambientIntensity: document.getElementById('ambient-intensity-value')
+            };
+
+            const resetButton = document.getElementById('reset-button');
+
+            // Update value displays
+            function updateValueDisplay(control, display) {
+                if (control.id === 'light-intensity' || control.id === 'ambient-intensity') {
+                    display.textContent = control.value + ' lux';
+                } else {
+                    display.textContent = control.value + 'px';
+                }
+            }
+
+            // Update light source
+            function updateLightSource() {
+                if (window.ElevationLight) {
+                    window.ElevationLight.set({
+                        x: parseInt(controls.x.value),
+                        y: parseInt(controls.y.value),
+                        z: parseInt(controls.z.value),
+                        radius: parseInt(controls.radius.value),
+                        intensityLux: parseInt(controls.intensity.value),
+                        ambientLux: parseInt(controls.ambientIntensity.value)
+                    });
+                }
+            }
+
+            // Add event listeners
+            Object.keys(controls).forEach(key => {
+                const control = controls[key];
+                const display = valueDisplays[key];
+                
+                control.addEventListener('input', () => {
+                    updateValueDisplay(control, display);
+                    updateLightSource();
+                });
+            });
+
+            // Reset button
+            resetButton.addEventListener('click', () => {
+                controls.x.value = 50;
+                controls.y.value = -200;
+                controls.z.value = 600;
+                controls.radius.value = 60;
+                controls.intensity.value = 2000;
+                controls.ambientIntensity.value = 500;
+
+                Object.keys(controls).forEach(key => {
+                    updateValueDisplay(controls[key], valueDisplays[key]);
+                });
+
+                updateLightSource();
+            });
+
+            // Initialize value displays
+            Object.keys(controls).forEach(key => {
+                updateValueDisplay(controls[key], valueDisplays[key]);
+            });
+        });
+    </script>
+</body>
+</html>
